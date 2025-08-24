@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Layout — Grid + Flexbox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◆</span>
+      <h1>My Responsive Site</h1>
+    </div>
+
+    <!-- Flexbox: aligned actions -->
+    <nav class="top-actions" aria-label="Quick actions">
+      <button class="btn">Sign in</button>
+      <button class="btn btn--primary">Get Started</button>
+    </nav>
+  </header>
+
+  <!-- Flexbox nav: wraps neatly on small screens -->
+  <nav class="primary-nav" aria-label="Primary">
+    <ul class="nav-list">
+      <li><a class="nav-link current" href="#">Home</a></li>
+      <li><a class="nav-link" href="#">Articles</a></li>
+      <li><a class="nav-link" href="#">Projects</a></li>
+      <li><a class="nav-link" href="#">About</a></li>
+      <li><a class="nav-link" href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- GRID LAYOUT: sidebar + main content area -->
+  <main id="main" class="page-grid">
+    <aside class="sidebar" aria-label="Sidebar">
+      <section class="widget">
+        <h2 class="widget__title">Categories</h2>
+        <ul class="widget__list">
+          <li><a href="#">Design</a></li>
+          <li><a href="#">Frontend</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Performance</a></li>
+        </ul>
+      </section>
+
+      <section class="widget">
+        <h2 class="widget__title">Subscribe</h2>
+        <form class="subscribe" action="#" method="post">
+          <label for="email" class="sr-only">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" required />
+          <button class="btn btn--primary" type="submit">Subscribe</button>
+        </form>
+      </section>
+    </aside>
+
+    <section class="content" aria-label="Content">
+      <header class="content-header">
+        <h2>Latest Highlights</h2>
+        <!-- Flexbox tools row -->
+        <div class="tools">
+          <label class="sr-only" for="sort">Sort</label>
+          <select id="sort" aria-label="Sort posts">
+            <option>Newest</option>
+            <option>Popular</option>
+            <option>Featured</option>
+          </select>
+          <input type="search" placeholder="Search…" aria-label="Search posts" />
+        </div>
+      </header>
+
+      <!-- Flexbox card layout (wraps responsively) -->
+      <div class="card-grid">
+        <article class="card">
+          <img src="https://picsum.photos/seed/a/640/360" alt="Abstract cover A" />
+          <div class="card__body">
+            <h3 class="card__title">Designing with Grid</h3>
+            <p>Learn how CSS Grid unlocks powerful page structures with simple, expressive code.</p>
+            <a class="btn btn--ghost" href="#">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/b/640/360" alt="Abstract cover B" />
+          <div class="card__body">
+            <h3 class="card__title">Flexbox Patterns</h3>
+            <p>From nav bars to media objects, Flexbox makes 1-dimensional layouts a breeze.</p>
+            <a class="btn btn--ghost" href="#">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/c/640/360" alt="Abstract cover C" />
+          <div class="card__body">
+            <h3 class="card__title">Accessible UI</h3>
+            <p>Small choices—color contrast, focus states, labels—make big differences.</p>
+            <a class="btn btn--ghost" href="#">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/d/640/360" alt="Abstract cover D" />
+          <div class="card__body">
+            <h3 class="card__title">Performance Wins</h3>
+            <p>Responsive images and smart CSS can significantly reduce loading time.</p>
+            <a class="btn btn--ghost" href="#">Read more</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Misgana. Built with raw HTML &amp; CSS (Grid + Flexbox).</p>
+  </footer>
+
+  <script>
+    // Tiny enhancement for the footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
